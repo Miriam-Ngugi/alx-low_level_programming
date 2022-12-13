@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 /**
- * main - Entry Point
+ * main - Prints the alphabet in lowercase.
  *
- * return: Always 0 (Success)
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
