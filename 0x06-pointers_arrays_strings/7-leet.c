@@ -2,23 +2,32 @@
 
 /**
  * leet - replaces a buch of numbers with letters
- * @z: the string to look at
+ * @s: the string to look at
  *
  * Return: The new string
  */
-char *leet(char *z)
+char *leet(char *s)
 {
-	char arr[] = {'a', 'A', 'e', 'A', 'o', 'O', 't', 'T', 'l', 'L'};
-	char replace[] = {'4', '3', '0', '7', '1'};
-	int i, j;
+	int a = 0, b = 0, l = 5;
+	char r[5] = {'A', 'E', 'O', 'T', 'L'};
+	char n[5] = {'4', '3', '0', '7', '1'};
 
-	for (i = 0; z[i] != '\0'; i++)
+	while (s[a])
 	{
-		for (j = 0; arr[j] != '\0'; j++)
+		b = 0;
+
+		while (b < 1)
 		{
-			if (z[i] == arr[j])
-				z[i] = replace[j / 2];
+			if (s[a] == r[b] || s[a] - 32 == r[b])
+			{
+				s[a] = n[b];
+			}
+
+			b++;
 		}
+
+		a++;
 	}
-	return (z);
+
+	return (s);
 }
