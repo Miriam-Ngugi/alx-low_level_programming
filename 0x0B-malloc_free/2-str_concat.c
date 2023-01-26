@@ -3,49 +3,41 @@
 
 /**
  * str_concat - concatenates two strings.
- * @s1: The fiirst string
- * @s2: The string to add to @s1
+ * @s1: first string.
+ * @s2: second string.
  *
- * Return: A pointer that points to a newly allocated space which
- * contains the contents of @s1, followed by the contents of @s2,
- * and null terminated. Return NULL if failed
+ * Return: pointer of an array of chars
  */
 char *str_concat(char *s1, char *s2)
 {
-	char *s3;
-	unsigned int s1len = 0;
-	unsigned int s2len = 0;
-	unsigned int s3len;
-	unsigned int i = 0;
-	unsigned int j = 0;
+	char *strout;
+	unsigned int i, j, k, limit;
 
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
 
-	while (s1[s1len])
-		s1len++;
-	while (s2[s2len])
-		s2len++;
+	for (i = 0; s1[i] != '\0'; i++)
+		;
 
-	s3len = s1len + s2len;
+	for (j = 0; s2[j] != '\0'; j++)
+		;
 
-	s3 = malloc(sizeof(char) * s3len + 1);
-	if (s3 == NULL)
+	strout = malloc(sizeof(char) * (i + j + 1));
+
+	if (strout == NULL)
+	{
+		free(strout);
 		return (NULL);
-
-	while (i < s1len)
-	{
-		s3[i] = s1[i];
-		i++;
 	}
 
-	while (i <= s1len)
-	{
-		s3[i] = s2[j];
-		i++;
-		j++;
-	}
-	return (s3);
+	for (k = 0; k < i; k++)
+		strout[k] = s1[k];
+
+	limit = j;
+	for (j = 0; j <= limit; k++, j++)
+		strout[k] = s2[j];
+
+	return (strout);
 }
