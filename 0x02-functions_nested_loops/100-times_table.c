@@ -6,7 +6,7 @@
  *
  * Reurn: Always 0
  */
-void prints_times_table(int n)
+void print_times_table(int n)
 {
 	int row, column, product;
 
